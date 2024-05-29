@@ -1,0 +1,32 @@
+﻿@model ApiFootball.Models.FixturesResults
+
+@{
+    ViewBag.Title = "TeamDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.team.name</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Lig</th>
+        <th>Ev Sahibi</th>
+        <th>Misafir</th>
+        <th>Maç Sonucu</th>
+        <th>Tarih</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var item in Model.matches)
+    {
+        <tr>
+            <td>@item.competition.name</td>
+            <td>@item.hometeam.name</td>
+            <td>@item.awayteam.name</td>
+            <td>@item.hometeam.score - @item.awayteam.score</td>
+            <td>@item.date</td>
+            <td><a href="/LeagueTable/MatchDetails/@item.id" class="btn btn-danger">SİL</a></td>
+
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,18 @@
+﻿@model ApiFootball.Models.Match
+
+@{
+    ViewBag.Title = "MatchDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Ev sahibi: @Model.hometeam.name</h2>
+<h2>Misafir: @Model.awayteam</h2>
+<h2>Tarih: @Model.date</h2>
+<h2>Turnuva: @Model.competition</h2>
+<h2>Durum: @Model.status</h2>
+<h2>Venue: @Model.venue</h2>
+<h2>Hakem: @Model.referee</h2>
+
+
+

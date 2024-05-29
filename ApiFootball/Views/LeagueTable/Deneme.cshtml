@@ -1,0 +1,81 @@
+﻿@model ApiFootball.Models.LeagueTable
+@{
+    ViewBag.Title = "Deneme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<style>
+    tr {
+        background-color: #808080
+    }
+
+        tr:first-child {
+            background-color: #ffffff
+        }
+
+        tr:nth-child(2) {
+            background-color: #83d43c
+        }
+
+        tr:nth-child(3) {
+            background-color: #ffd800
+        }
+
+        tr:nth-child(4) {
+            background-color: #ffd800
+        }
+
+        tr:nth-last-child(-n+4) {
+            background-color: #ff6a00
+        }
+
+    td:first-child {
+        background-color: #ffffff
+    }
+</style>
+
+
+
+
+<h2>@Model.competition.name</h2>
+<br />
+
+<table class="table table-responsive-lg">
+    <tr>
+        <th>Sıra</th>
+        <th>Ad</th>
+        <th>Om</th>
+        <th>W</th>
+        <th>L</th>
+        <th>D</th>
+        <th>Ag</th>
+        <th>Yg</th>
+        <th>A</th>
+        <th>P</th>
+    </tr>
+    @foreach (var item in Model.teams)
+    {
+
+        <tr>
+
+            <td>@item.position</td>
+            <td><a href="/LeagueTable/TeamDetails/@item.id"> @item.name</a></td>
+            <td>@item.allmatches.played</td>
+            <td>@item.allmatches.won</td>
+            <td>@item.allmatches.lost</td>
+            <td>@item.allmatches.drawn</td>
+            <td>@item.allmatches._for</td>
+            <td>@item.allmatches.against</td>
+            <td>@item.allmatches.goaldifference</td>
+            <td>@item.totalpoints</td>
+
+        </tr>
+
+
+    }
+</table>
+
